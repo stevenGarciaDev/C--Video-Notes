@@ -1,0 +1,7 @@
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\LambdaExpressions\LambdaExpressions\bin\Debug\LambdaExpressions.exe.config
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\LambdaExpressions\LambdaExpressions\bin\Debug\LambdaExpressions.exe
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\LambdaExpressions\LambdaExpressions\bin\Debug\LambdaExpressions.pdb
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\LambdaExpressions\LambdaExpressions\obj\Debug\LambdaExpressions.csprojAssemblyReference.cache
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\LambdaExpressions\LambdaExpressions\obj\Debug\LambdaExpressions.csproj.CoreCompileInputs.cache
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\LambdaExpressions\LambdaExpressions\obj\Debug\LambdaExpressions.exe
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\LambdaExpressions\LambdaExpressions\obj\Debug\LambdaExpressions.pdb

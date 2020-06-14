@@ -1,0 +1,7 @@
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\Tutorials_ThomsonReuters\bin\Debug\Tutorials_ThomsonReuters.exe.config
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\Tutorials_ThomsonReuters\bin\Debug\Tutorials_ThomsonReuters.exe
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\Tutorials_ThomsonReuters\bin\Debug\Tutorials_ThomsonReuters.pdb
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\Tutorials_ThomsonReuters\obj\Debug\Tutorials_ThomsonReuters.csprojAssemblyReference.cache
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\Tutorials_ThomsonReuters\obj\Debug\Tutorials_ThomsonReuters.csproj.CoreCompileInputs.cache
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\Tutorials_ThomsonReuters\obj\Debug\Tutorials_ThomsonReuters.exe
+C:\Users\steve\Documents\Projects\Tutorial_Thomson_Reuters\Tutorials_ThomsonReuters\Tutorials_ThomsonReuters\obj\Debug\Tutorials_ThomsonReuters.pdb
