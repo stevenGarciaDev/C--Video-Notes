@@ -11,7 +11,7 @@ namespace Tutorials_ThomsonReuters
         public static void output()
         {
             // -----------------------------
-            // 50) Internal and Protected Internal Access Modifiers 
+            // 50) Internal and Protected Internal Access Modifiers
 
             // The internal acceess modifier is accessible anywhere in the containing assembly.
 
@@ -20,12 +20,12 @@ namespace Tutorials_ThomsonReuters
 
             // In .NET, when you compile a project, an assembly is generated.
             // The assembilies are of types executables and DLLs.
-            // Usually a console app generates a windows.exe 
-            // A web application, a class library, etc. generates a .dll 
+            // Usually a console app generates a windows.exe
+            // A web application, a class library, etc. generates a .dll
 
             // A project corresponds to an assembly.
             // Right Click on project, open in file explorer, bin directory, debug,
-            // There you will see the ProjectName.exe 
+            // There you will see the ProjectName.exe
             // For a console application.
 
             // The assembly contains the intermediate language of your project's source code.
@@ -51,7 +51,7 @@ namespace Tutorials_ThomsonReuters
 
             // using AssemblyOne;
 
-            // So that class has an internal member that we want to access outside 
+            // So that class has an internal member that we want to access outside
             // in an assembly that has referenced and successfully imported the class.
 
             // NOTE: You are not allowed to access that member outside of the assembly
@@ -63,10 +63,10 @@ namespace Tutorials_ThomsonReuters
 
             // Protected is accessible within the base and derived classes.
 
-            // Anywhere in the containing assembly and from within a derived class 
+            // Anywhere in the containing assembly and from within a derived class
             // in ANY OTHER ASSEMBLY.
 
-            // Meaning that it can serve as a base class for classes in other assembalies 
+            // Meaning that it can serve as a base class for classes in other assembalies
             // who derive from the containing class.
 
             // -----------------------------
@@ -77,7 +77,7 @@ namespace Tutorials_ThomsonReuters
             // When marked as public, you need to add a reference to the assembly.
             // Import the directive and then you can use that class to instantiate an object.
 
-            // If you mark a type as internal, then that class is only accessible from within 
+            // If you mark a type as internal, then that class is only accessible from within
             // the assembly that it was created it.
 
             // If you don't explicitly mark an access modifier for the type, then the default will be internal.
@@ -87,7 +87,7 @@ namespace Tutorials_ThomsonReuters
             // -----------------------------
             // 52) Attributes in C#
 
-            // Attributes allow you add declarative information to your programs which can then 
+            // Attributes allow you add declarative information to your programs which can then
             // be queries at runtime using reflection.
 
             //Calculator.Add(10, 20);
@@ -122,7 +122,7 @@ namespace Tutorials_ThomsonReuters
 
             // They are a class that inherit from the base Attribute class.
             // So pass in a message. When you hover mouse over it in the source code.
-            // There will be a popup with that message that you specified! 
+            // There will be a popup with that message that you specified!
 
             //[Obsolete("Use Add<List<int> Numbers) Method")]
 
@@ -146,15 +146,15 @@ namespace Tutorials_ThomsonReuters
             // the classes are compiled into intermediate lanaguage and packaged into an assembly.
 
             // An assembly consist of two parts
-            // 1) The intermediate language 
-            // 2) The meta data 
+            // 1) The intermediate language
+            // 2) The meta data
 
             // The Meta Data contains information about the types within the class and assembly.
 
             // It contains information regarding what are the members within a class.
             // Including constructors and methods, etc.
 
-            // Reflection is taking the assembly and inspecting it to find 
+            // Reflection is taking the assembly and inspecting it to find
             // how many classes are contained in the assembly, how many enums, structs,
             // and for each class what are the different members do they each have.
 
@@ -165,7 +165,7 @@ namespace Tutorials_ThomsonReuters
             // When drag and drop a button, we know that a Button is a class.
             // You have the button class, and continue clicking 'Go to definition'.
 
-            // So when compile, all the information about the properties and methods 
+            // So when compile, all the information about the properties and methods
             // is also compiled into the assembly in the form of metadata.
 
             // Right click, go to properties window.
@@ -175,14 +175,14 @@ namespace Tutorials_ThomsonReuters
 
             // Used by IDE developers.
 
-            // Late binding for example. You might not have knowledge of the class 
+            // Late binding for example. You might not have knowledge of the class
             // that you are instantiating at runtime.
             // Maybe don't have the assembly available, and don't have any knowledge.
             // You have to create an instance at runtime dynamically. (late binding)
 
             // One way to achieve late binding is with reflection
             // where at runtime, you check an assembly (load it dynamically)
-            // the class that I am looking for, does it exist in that assembly 
+            // the class that I am looking for, does it exist in that assembly
             // if yes then create an instance and invoke methods needed.
 
             // So when you use the new keyword to explicitly invoke a class, that is an example of early binding.
@@ -192,16 +192,16 @@ namespace Tutorials_ThomsonReuters
             // If you were to write a function that can output a classes' type members, you would use reflection
             // to accomplish that.
 
-            // Centered around the type class which is provided in System namespace 
-            // Type 
+            // Centered around the type class which is provided in System namespace
+            // Type
 
 
             // so the parameter expects the fully qualified type name including the namespace.
             // Type T = Type.GetType("Tutorials_ThomsonReuters.Program2");
             // So GetType() will get the type of the class.
 
-            // The Type datatype can be used with its built in methods 
-            // to find information that we are looking for regarding 
+            // The Type datatype can be used with its built in methods
+            // to find information that we are looking for regarding
             // the type members of the class that we are operating on.
 
             // It returns an Array of PropertyInfo objects
@@ -216,7 +216,7 @@ namespace Tutorials_ThomsonReuters
             // }
 
             // Now for the fully qualified type including the namespace.
-            // Console.WriteLine("Full Name = {0}", T.FullName); 
+            // Console.WriteLine("Full Name = {0}", T.FullName);
 
             // For just the name of the class.
             // Console.WriteLine("Name of class = {0}", T.Name);
@@ -246,7 +246,7 @@ namespace Tutorials_ThomsonReuters
             // All objects have the .GetType() method which they inherit from System.Object
 
             // -----------------------------
-            // 54) Reflection Example 
+            // 54) Reflection Example
 
 
 
@@ -295,7 +295,7 @@ namespace Tutorials_ThomsonReuters
 
             // Generics allow us to design classes and methods decoupled from the data types.
 
-            // It's brittle when a method only works for a specific data type in some cases 
+            // It's brittle when a method only works for a specific data type in some cases
             // when that same logic and interface can be used for other data types.
 
             // Allowing code reuse with any data type
@@ -315,12 +315,12 @@ namespace Tutorials_ThomsonReuters
             // bool Equal = Calculator.AreEqual<string>("AB", "BA");
             // bool EqualNumbers = Calculator.AreEqual<int>(10, 7);
 
-            // Generics are extensibly used in the Collection classes which are provided in System.Collections.Generic 
+            // Generics are extensibly used in the Collection classes which are provided in System.Collections.Generic
 
             // You could also make classes generic.
             // meaning that all the methods are going to operate on the type.
 
-            // Instead of specifying <T> for each method 
+            // Instead of specifying <T> for each method
             // you specify it on the class instead.
 
             // public class Calculator<T>
@@ -341,7 +341,7 @@ namespace Tutorials_ThomsonReuters
             // .GetHashCode()
 
             // For your custom classes,
-            // You want to specify how it should print to the console and not just rely 
+            // You want to specify how it should print to the console and not just rely
             // on the built in ToString() implementation.
             // It gives you the complete name of typename including the namespace.
 
@@ -351,7 +351,7 @@ namespace Tutorials_ThomsonReuters
             //      return $"{this.LastName}, {this.FirstName}";
             // }
 
-            // You could also convert another with with 
+            // You could also convert another with with
             // Console.WriteLine(Convert.ToString(customer));
 
             // -----------------------------
@@ -372,16 +372,16 @@ namespace Tutorials_ThomsonReuters
             // So we can ask, are they referecing the same object on the heap?
             // Then we have reference equality.
 
-            // But also. 
+            // But also.
             // If there are two difference objects but their fields hold the same data.
 
             // so == should be used for reference equality.
             // And the .Equals() method should be for value equality.
 
-            // The default implementation doesn't know which properties to check 
+            // The default implementation doesn't know which properties to check
             // for equality.
 
-            // public override bool Equals(object obj) 
+            // public override bool Equals(object obj)
             // {
             //      if (obj == null)
             //      {
@@ -409,30 +409,30 @@ namespace Tutorials_ThomsonReuters
             string str = c1.ToString();
             Console.WriteLine(str);
 
-            // could also use the convert class 
+            // could also use the convert class
 
             Customer c2 = new Customer();
             string str2 = Convert.ToString(c2);
             Console.WriteLine(str2);
 
-            // so you would get the same output 
+            // so you would get the same output
             // The difference is when the c1 is null,
-            // the static .ToString with the Convert class 
+            // the static .ToString with the Convert class
             // It will convert the null to an empty string.
 
             // If you just rely on the built in .ToString() on the object,
-            // when it is null, 
+            // when it is null,
             // then it will throw an exception.
 
             // Since can't invoke a method from a null reference.
 
-            // So to review 
+            // So to review
             // Convert.ToString() handles null.
 
-            // whereas the built in .ToString() for the base object doesn't handle null 
+            // whereas the built in .ToString() for the base object doesn't handle null
             // and throws a Null Reference Exception
 
-            // Neither is better than the other. 
+            // Neither is better than the other.
 
             // -----------------------------
             // 60) Difference between String and StringBuilder
@@ -440,7 +440,7 @@ namespace Tutorials_ThomsonReuters
             // System.String is immutable
             // whereas StringBuilder is mutable.
 
-            // As StringBuilder objects are mutable, they offer better performance 
+            // As StringBuilder objects are mutable, they offer better performance
             // when heavy string manipulation is involved.
 
             string userString = "C#";

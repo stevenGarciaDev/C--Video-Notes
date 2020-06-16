@@ -10,11 +10,11 @@ namespace Tutorials_ThomsonReuters
         public static void Main(string[] args)
         {
             // ---------------------------------
-            // 61) Partial Classes 
+            // 61) Partial Classes
             // ---------------------------------
 
             // Partial classes allow us to split a class into 2 or more files.
-            // All these parts are then combined into a single class, when the application 
+            // All these parts are then combined into a single class, when the application
             // is compiled.
             // The partial keyword can also be used to split a struct or an interface over two or more files.
 
@@ -22,25 +22,25 @@ namespace Tutorials_ThomsonReuters
             // 1) The main advantage is that visual studio uses partial classes to separate automatically
             // generated system code from the developer's code.
 
-            // 2) When working on large projects, spreading a class over separate files allows multiple 
+            // 2) When working on large projects, spreading a class over separate files allows multiple
             // programmers to work on it simultaneously. (not really used in practice for this purpose though)
 
-            // public class Customer 
+            // public class Customer
             // {
 
             // }
 
-            // So when splitting, you need to use the partial keyword 
+            // So when splitting, you need to use the partial keyword
             // public partial class PartialCustomer
             // {
 
             // }
 
             // ---------------------------------
-            // 62) Creating Partial Classes 
+            // 62) Creating Partial Classes
             // ---------------------------------
 
-            // The rules to keep in mind. It's important that you use the partial keyword 
+            // The rules to keep in mind. It's important that you use the partial keyword
             // so that the system will know your intention.
 
             // 1. All the parts spread across different files, must use the partial keyword.
@@ -53,36 +53,36 @@ namespace Tutorials_ThomsonReuters
             // 6. C# does not support multiple class inheritance.
             //  So different parts of the partial class must not specify different base classes.
 
-            // 7. Different parts of the partial class can specify different base interfaces, and 
+            // 7. Different parts of the partial class can specify different base interfaces, and
             //  the final type implements all the interfaces listed by all the partial declarations.
 
-            // 8. Any members that are decelared in a partial definition are available to all 
+            // 8. Any members that are decelared in a partial definition are available to all
             // of the other parts of the partial class.
 
-            // so for both of the files, would have the class be 
+            // so for both of the files, would have the class be
             // public partial class SamplePartialClass
             // {
             // }
 
-            // to make it an abstract class, 
+            // to make it an abstract class,
             // you would need to make this for both
             // public abstract partial class SamplePartialClass
             // {
             // }
 
-            // At compile time, the partial classes will be merged together and it will form 
+            // At compile time, the partial classes will be merged together and it will form
             // one class. (One file)
 
             // public partial class SamplePartialClass : Sample
-            // { 
+            // {
             // }
             // So you only need to mark one class and it will automatically
-            // be inherited in any other partial class even if it doesn't 
+            // be inherited in any other partial class even if it doesn't
             // say so explicitly.
 
 
             // ---------------------------------
-            // 63) Partial Methods 
+            // 63) Partial Methods
             // ---------------------------------
 
             // The rules to follow when creating partial methods.
@@ -96,25 +96,25 @@ namespace Tutorials_ThomsonReuters
             // These may be in separate parts of a partial class or in the same part.
 
             // 4. The implementation for a partial method is optional.
-            // If we don't provide the implementation, the compiler removes the signature and 
+            // If we don't provide the implementation, the compiler removes the signature and
             // all calls to the method.
 
-            // 5. Partial methods are private by default, and it is a compile time error to 
+            // 5. Partial methods are private by default, and it is a compile time error to
             // include any access modifiers, including private.
 
-            // 6. It is a compile time error, to include declaration and implementation 
+            // 6. It is a compile time error, to include declaration and implementation
             // at the same time for a partial method.
 
-            // 7. A partial method and return type must be void. 
+            // 7. A partial method and return type must be void.
             // Including any other return type is a compile time error.
 
-            // 8. Signature of the partial method declaration must match with the signature 
+            // 8. Signature of the partial method declaration must match with the signature
             // of the implementation.
 
             // 9. A partial method must be declared within a partial class or a partial struct.
             // A non partial class or struct cannot include partial methods.
 
-            // 10. A partial method can be implemented only once. Trying to implement a partial 
+            // 10. A partial method can be implemented only once. Trying to implement a partial
             // method more than once, raises a compile time error.
 
             // PartialClassFileOne SPC = new PartialClassFileOne();
@@ -126,16 +126,16 @@ namespace Tutorials_ThomsonReuters
             // NOTE: that a partial method can't have ANY access modifiers.
 
             // ---------------------------------
-            // 64) How and where are indexers used in C#  
+            // 64) How and where are indexers used in C#
             // ---------------------------------
 
-            // Indexers are used to store or retrieve data from session state 
+            // Indexers are used to store or retrieve data from session state
             // or application state variables such as in ASP.NET.
 
-            // when you hover over the object, the intellisence will tell you 
+            // when you hover over the object, the intellisence will tell you
             // that there is an indexer (potentially multiple overloaded ones).
 
-            // It enables you to save something within the object utilizing the 
+            // It enables you to save something within the object utilizing the
             // syntax of for example.
 
             // Session["Session1"] = "Session 1 data";
@@ -153,24 +153,24 @@ namespace Tutorials_ThomsonReuters
             // public object this[int index] { get; set; }
             // public object this[string name] { get; set; }
 
-            // So another example of indexer usage in .NET is to retrieve data from a specific 
+            // So another example of indexer usage in .NET is to retrieve data from a specific
             // column when looping through "SqlDataReader" object, we can use either the integral
             // indexer or string indexer.
 
             // NOTE: Look into ADO.NET for SQL and .NET framework.
 
-            // So just know that there are many built in classes in the .NET framework 
+            // So just know that there are many built in classes in the .NET framework
             // that utilize indexers.
 
             // In summary:
             // Indexers allow instances of a class to be indexed just like arrays.
 
             // ---------------------------------
-            // 65) Indexers in C# 
+            // 65) Indexers in C#
             // ---------------------------------
 
             // Points to remember:
-            // 1. Use "this" keyworkd to create an indexer.
+            // 1. Use "this" keyword to create an indexer.
             // 2. Just like properties indexers have get and set accessors.
             // 3. Indexers can also be overloaded.
 
@@ -179,7 +179,7 @@ namespace Tutorials_ThomsonReuters
             // Console.WriteLine(company[1]);
 
             // ---------------------------------
-            // 66) Overloading indexers in C#  
+            // 66) Overloading indexers in C#
             // ---------------------------------
 
             // Indexers are overloaded based on the number and type of parameters.
@@ -187,7 +187,7 @@ namespace Tutorials_ThomsonReuters
             // See code below.
 
             // ---------------------------------
-            // 67) Optional parameters in C# 
+            // 67) Optional parameters in C#
             // ---------------------------------
 
             // There are different ways to make method parameters optional.
@@ -206,7 +206,7 @@ namespace Tutorials_ThomsonReuters
             //      int sum = firstNum + secondNum;
             //      foreach (int i in restOfNumbers)
             //      {
-            //          result += 1; 
+            //          result += 1;
             //      }
             //      Console.WriteLine("Total = " + result.ToString());
             // }
@@ -229,9 +229,9 @@ namespace Tutorials_ThomsonReuters
             // ....
             // }
 
-            // This is pretty basic. 
+            // This is pretty basic.
             // Basically it means using an overloaded method with a different parameter list.
-            // Note that this may not be the most scalable as you have to overload 
+            // Note that this may not be the most scalable as you have to overload
             // to account for each new parameter variable.
 
             // ---------------------------------
@@ -297,7 +297,7 @@ namespace Tutorials_ThomsonReuters
         // BUT you cannot do so at the same time.
         partial void SamplePartialMethod();
 
-        // partial void SamplePartialMethod() 
+        // partial void SamplePartialMethod()
         // {
         //     Console.WriteLine("SamplePartialMethod invoked!");
         // }

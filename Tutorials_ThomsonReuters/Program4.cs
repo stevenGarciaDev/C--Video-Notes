@@ -17,12 +17,12 @@ namespace Tutorials_ThomsonReuters
             // 1. Keyboard shortcut: Ctrl K + X
             // 2. Right click and select "Insert snippet...", from the context menu
             // 3. Click on Edit - Intellisense - Insert snippet
-            // 4. Use code snippet short cut. 
+            // 4. Use code snippet short cut.
             // Ex: use "for loop" code snippet, type "for" and press Tab key twice
 
-            // Once a code snippet is inserted, the editable fields are highlighted in yellow, and 
+            // Once a code snippet is inserted, the editable fields are highlighted in yellow, and
             // the first editable field is selected automatically.
-            // Upon changing the first editable field, press TAB to move to the 
+            // Upon changing the first editable field, press TAB to move to the
             // next editable field.
             // To come to the previous editable field use SHIFT + TAB.
             // Press ENTER or ESC keys to cancel field editing and return the Code Editor to normal.
@@ -30,7 +30,7 @@ namespace Tutorials_ThomsonReuters
             // Code Snippet Types:
             // Expansion: These snippets allow the code snippet to be inserted at the cursor.
 
-            // SurroundsWith: These snippets allow the code snippet to be placed around a selected 
+            // SurroundsWith: These snippets allow the code snippet to be placed around a selected
             // piece of code.
 
             // Refactoring: These snippets are used during code refactoring.
@@ -40,7 +40,7 @@ namespace Tutorials_ThomsonReuters
             // 2. Select the code to surround, right click and select "Surround with..." option
             // with the context menu.
             // 3. Select the code to surround, then click on Edit menu, select "IntelliSense"
-            // and then select the "Surround With" command 
+            // and then select the "Surround With" command
 
             // Code Snippets can be used with any type of applications that you create with Visual Studio.
             // Console Apps
@@ -153,7 +153,7 @@ namespace Tutorials_ThomsonReuters
 
             Console.WriteLine("Total Items = {0}", dictionaryCustomers.Count);
 
-            // could also use the Count() function which is in a different namespace 
+            // could also use the Count() function which is in a different namespace
             // It's actually an extension method.
 
             Console.WriteLine("Total Items = {0}", dictionaryCustomers.Count(kvp => kvp.Value.Salary > 40000));
@@ -168,7 +168,7 @@ namespace Tutorials_ThomsonReuters
             customers[1] = customer2;
             customers[2] = customer3;
 
-            // For the arg, you first specify what the key should be 
+            // For the arg, you first specify what the key should be
             // then specify what the value will be.
             Dictionary<int, NewCustomer> dict = customers.ToDictionary(cust => cust.ID, cust => cust);
 
@@ -185,10 +185,10 @@ namespace Tutorials_ThomsonReuters
 
             // List is one of the generic collection classes present in System.Collection.Generic namespace.
             // There are several generic collection classes in System.Collections.Generic namespace.
-            // 1. Dictionary 
-            // 2. List 
+            // 1. Dictionary
+            // 2. List
             // 3. Stack
-            // 4. Queue 
+            // 4. Queue
 
             // A List class can be used to create a collection of any type.
 
@@ -236,7 +236,7 @@ namespace Tutorials_ThomsonReuters
             // To insert an object at a specific location,
             // as the .Add() will just append to the end.
             customersList.Insert(0, customer3);
-            // So when you insert it, it will push the rest of the elements 
+            // So when you insert it, it will push the rest of the elements
             // down in the collection from that point.
 
             // To retrieve the index of a specific object in the list.
@@ -250,54 +250,54 @@ namespace Tutorials_ThomsonReuters
             // For how many elements to you want to look from the start point.
             int index3 = customersList.IndexOf(customer3, 1, 2);
 
-            // NOTE: That it will throw an exception is the range to look through 
-            // is more than the actual count. 
+            // NOTE: That it will throw an exception is the range to look through
+            // is more than the actual count.
 
             // ---------------------------------
             // 75) List collection class in C# contiued
             // ---------------------------------
 
-            // Contains() function 
-            // Checks if an item exists in the list. This method returns 
+            // Contains() function
+            // Checks if an item exists in the list. This method returns
             // true if the items exist, else false.
 
             // Exists() function
-            // Checks if an item exists in the list based on a condition. This 
+            // Checks if an item exists in the list based on a condition. This
             // method returns true if the items exists, else false.
 
-            // Find() 
-            // Searches for an element that matches the conditions defined 
-            // by the specified lambda expression and returns the first matching 
+            // Find()
+            // Searches for an element that matches the conditions defined
+            // by the specified lambda expression and returns the first matching
             // item from the list.
 
             // FindLast()
-            // Searches fro an element that matches the conditions defined 
-            // by the specified lambda expression and returns the Last matching 
+            // Searches fro an element that matches the conditions defined
+            // by the specified lambda expression and returns the Last matching
             // item from the list.
 
             // FindAll()
-            // Returns all the items from the list that match the conditions 
-            // specified by the lambda expression. 
+            // Returns all the items from the list that match the conditions
+            // specified by the lambda expression.
 
             // FindIndex()
-            // Returns the index of the first item, that matches the condition specified 
+            // Returns the index of the first item, that matches the condition specified
             // by the lambda expression.
-            // There are 2 other overloads of this method which allow us to specify 
+            // There are 2 other overloads of this method which allow us to specify
             // the range of elements to search within the list.
 
             // FindLastIndex()
-            // Returns the last index of the last item, that matches the condition specified 
-            // by the lambda expression. There are 2 other overloads of 
-            // this method which allows us to specify the range of elements to search 
+            // Returns the last index of the last item, that matches the condition specified
+            // by the lambda expression. There are 2 other overloads of
+            // this method which allows us to specify the range of elements to search
             // within the list.
 
-            // Convert an array to a list 
-            // Use ToList() method 
+            // Convert an array to a list
+            // Use ToList() method
 
-            // Convert a list to an array 
-            // Use ToArray() method 
+            // Convert a list to an array
+            // Use ToArray() method
 
-            // Convert a list to a dictionary 
+            // Convert a list to a dictionary
             // use ToDictionary() method
 
             if (customersList.Contains(customer1))
@@ -320,7 +320,7 @@ namespace Tutorials_ThomsonReuters
             NewCustomer cust1334 = customersList.Find(cust => cust.Salary > 50000);
 
             // So FindLast()
-            // This returns the Last matching item from the list rather than the first 
+            // This returns the Last matching item from the list rather than the first
             // like the one shown above.
 
             NewCustomer lastMatchingCustomer = customersList.FindLast(cust => cust.Salary > 50000);
@@ -328,11 +328,11 @@ namespace Tutorials_ThomsonReuters
             // FindAll()
             List<NewCustomer> matchingCustomers = customersList.FindAll(cust => cust.Salary > 50000);
 
-            // FindIndex() 
+            // FindIndex()
             // Based on the matching condition.
             int matchingIndex1 = customersList.FindIndex(cust => cust.Salary > 50000);
 
-            // Could also supply the first argument to be an integer to state 
+            // Could also supply the first argument to be an integer to state
             // where to start searching from. (could supply another arg for a range)
             int matchingIndexFromRange = customersList.FindIndex(2, cust => cust.Salary > 50000);
 
@@ -341,7 +341,7 @@ namespace Tutorials_ThomsonReuters
             // This also has three overloads with use cases with the same as above.
             int matchingLastIndex = customersList.FindLastIndex(1, cust => cust.Salary > 50000);
 
-            // Convert an array to a list 
+            // Convert an array to a list
             List<NewCustomer> myNewList = myCustomers.ToList();
 
             // Convert a list to an array.
@@ -367,15 +367,15 @@ namespace Tutorials_ThomsonReuters
             // where AddRange() allows you to add another list of items,
             // to the end of the list.
 
-            // GetRange() 
+            // GetRange()
             // Using an item index, we can retrieve only one item at a time from the list,
             // if you want to get a list of items from the list, then use GetRange()
             // This function expects 2 parameters, the start index of the list and
             // the number of elements to return.
 
             // InsertRange()
-            // Insert() method allows you to insert a single item into the list at a specified 
-            // index where InsertRange() allows you to insert another list of items to your list 
+            // Insert() method allows you to insert a single item into the list at a specified
+            // index where InsertRange() allows you to insert another list of items to your list
             // at the specified index.
 
             // RemoveRange()
@@ -383,14 +383,14 @@ namespace Tutorials_ThomsonReuters
             // RemoveAt() function removes the item at the specified index in the list.
             // RemoveAll() removes all the items that match the specified condition.
             // RemoveRange() removes a range of elements from the list.
-            // This function expects 2 parameters the start index in the list and the number of 
+            // This function expects 2 parameters the start index in the list and the number of
             // elements to remove.
             // If you want to remove all the elements from the list without specifying any condition,
             // then use Clear() function.
 
             // --
 
-            // so from index 0 get 2 customers 
+            // so from index 0 get 2 customers
             // List<Customer> customers = listCustomers.GetRange(0, 2);
 
 
@@ -400,7 +400,7 @@ namespace Tutorials_ThomsonReuters
             // ---------------------------------
 
             // Sorting a list of simple types like int, string, char is straight forward.
-            // just invoke the sort() method on the list instance and the data will 
+            // just invoke the sort() method on the list instance and the data will
             // be automatically sorted in ascending order
             List<int> numbers = new List<int> { 1, 8, 7, 5, 2, 3, 4, 9, 6 };
             numbers.Sort();
@@ -409,19 +409,19 @@ namespace Tutorials_ThomsonReuters
                 Console.WriteLine(num);
             }
 
-            // If you want the data to be retrieved in desceding order, use Reverse() method 
+            // If you want the data to be retrieved in desceding order, use Reverse() method
             // on the list instance.
             numbers.Reverse();
 
 
-            // However when you do the same thing with a complex type like NewCustomer, we get 
+            // However when you do the same thing with a complex type like NewCustomer, we get
             // a runtime invalid operation expception - failed to compare 2 elements in the array.
             // This is because .NET runtime does not know how to sort complex types.
-            // We have to tell the way we want data to be sorted in the list by 
+            // We have to tell the way we want data to be sorted in the list by
             // implementing IComparable interface.
 
             // How is the sort functionality working for simple types like int, string, char.
-            // That is because these types (int, string, decimal, char, etc.) have 
+            // That is because these types (int, string, decimal, char, etc.) have
             // implemented IComparable interface already.
 
             // To sort a list of strings.
@@ -447,8 +447,8 @@ namespace Tutorials_ThomsonReuters
             }
 
             // Now for sorting a complex type like NewCustomer.
-            // You have to tell .NET runtime how you want these complex types 
-            // to be sorted by implementing the interface IComparable 
+            // You have to tell .NET runtime how you want these complex types
+            // to be sorted by implementing the interface IComparable
 
             // ---------------------------------
             // 78) Sort a list of complex types in C#
@@ -458,18 +458,18 @@ namespace Tutorials_ThomsonReuters
             // interface and provide implementation for CompareTo() method.
             // CompareTo() method returns an integer and the meaning of the return value is shown below.
 
-            // RETURN VALUE is 
+            // RETURN VALUE is
             // Greater than zero =>
-            // the current instance is greater than the object being compared with 
+            // the current instance is greater than the object being compared with
 
             // Less than ZERO =>
-            // the current instance is less than the object being compared with 
+            // the current instance is less than the object being compared with
 
             // is ZERO =>
-            // the current instance is equal to the object being compared with 
+            // the current instance is equal to the object being compared with
 
-            // Alternatively you can also invoke CompareTo() method 
-            // you can invoke its value on one of its primitive properties 
+            // Alternatively you can also invoke CompareTo() method
+            // you can invoke its value on one of its primitive properties
             // as to return its value
 
             customersList.Sort();
@@ -477,7 +477,7 @@ namespace Tutorials_ThomsonReuters
             // Using LINQ
             customersList.OrderByDescending(cust => cust.Salary);
 
-            // There may also be the case when you want to sort a data structure 
+            // There may also be the case when you want to sort a data structure
             // (a class) but you don't have access to the implementation.
             // Well you could use LINQ,
 
@@ -491,38 +491,38 @@ namespace Tutorials_ThomsonReuters
             SortByName sortByName = new SortByName();
             customersList.Sort(sortByName);
 
-            // There are several overloaded methods for the .Sort() method 
+            // There are several overloaded methods for the .Sort() method
             // on the List<> data structure.
 
             // ---------------------------------
             // 79) Sort a list of complex types using Comparison delegate
             // ---------------------------------
 
-            // One of the overloads of the Sort() method in List class expects Comparison delegate 
-            // to be passed as an argument 
+            // One of the overloads of the Sort() method in List class expects Comparison delegate
+            // to be passed as an argument
             // public void Sort(Comparison<T> comparison);
 
-            // Approach 1: 
+            // Approach 1:
             // Step 1: Create a function whose signature matches the signature of
-            // System.Comparison delegate. 
+            // System.Comparison delegate.
             // This is the method where we need to write the logic to compare 2 customer objects.
             // private static int CompareCustomers(NewCustomer c1, NewCustomer c2)
             // {
             //      return c1.ID.CompareTo(c2.ID);
             // }
 
-            // Step 2: Create an instance of System.Comparison delegate and then pass the name 
+            // Step 2: Create an instance of System.Comparison delegate and then pass the name
             // of the function created in Step 1 as the argument.
-            // So at this point "Comparison" delegate is pointing to our function 
+            // So at this point "Comparison" delegate is pointing to our function
             // that contains the logic to compare 2 customer objects.
             // Comparison<Customer> customerComparer = new Comparison<NewCustomer>(CompareCustomers);
 
             // Step 3: Pass the delegate instance as an argument to Sort() function.
             // customersList.Sort(customComparer);
 
-            // NOTE: a delegate is a function pointer 
-            // when you invoke the delegate, it will automatically 
-            // invoke the function that it points to 
+            // NOTE: a delegate is a function pointer
+            // when you invoke the delegate, it will automatically
+            // invoke the function that it points to
 
             Comparison<NewCustomer> customerComparer = new Comparison<NewCustomer>(CompareCustomer);
 
@@ -534,24 +534,24 @@ namespace Tutorials_ThomsonReuters
             }
 
             // APPROACH 2:
-            // We don't actually have to go through all those steps as done in the previous 
+            // We don't actually have to go through all those steps as done in the previous
             // approach.
             // Rather we can achieve the same thing utilizing the delegate keyword.
             // In approach 1 we did the following:
-            // 1. Created a private function that contains the logic to compare customers 
-            // 2. Created an instance of Comparison delegate, and then passed the name of 
+            // 1. Created a private function that contains the logic to compare customers
+            // 2. Created an instance of Comparison delegate, and then passed the name of
             // the private function to the delegate.
             // 3. Finally passed the delegate instance to the Sort() method.
 
             // Now a simplified way.
-            // Use the delegate keyword 
+            // Use the delegate keyword
             customersList.Sort(delegate (NewCustomer c1, NewCustomer c2)
             {
                 return (c1.ID.CompareTo(c2.ID));
             });
 
-            // Approach 3: 
-            // Can be further simplified by using lamda expressions 
+            // Approach 3:
+            // Can be further simplified by using lamda expressions
             customersList.Sort((c1, c2) => c1.ID.CompareTo(c2.ID));
         }
 
@@ -579,7 +579,7 @@ namespace Tutorials_ThomsonReuters
 
         public int CompareTo(NewCustomer obj)
         {
-            // if (this.Salary > obj.Salary) 
+            // if (this.Salary > obj.Salary)
             // {
             //     return 1;
             // }

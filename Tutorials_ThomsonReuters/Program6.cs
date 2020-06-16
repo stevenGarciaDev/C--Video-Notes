@@ -17,7 +17,7 @@ namespace Tutorials_ThomsonReuters
         {
             Console.WriteLine("Sum of numbers = " + sum);
         }
-        
+
         // video 93
         static int Total = 0;
 
@@ -28,23 +28,23 @@ namespace Tutorials_ThomsonReuters
             -------------------- */
 
             // Example
-            // Please enter the target number 
-            // 5 
+            // Please enter the target number
+            // 5
             // Sum of numbers is 15
 
-            // So 
-            // Main thread retreives the target number from the user 
+            // So
+            // Main thread retreives the target number from the user
             // Main thread creates a child thread and pass the target number to the child thread.
 
             // The child thread computes the sum of numbers and then returns the sum to the Main
             // thread using callback functions.
 
-            // The callback method prints the sum of numbers. 
+            // The callback method prints the sum of numbers.
 
-            // Step 1: Create a callback delegate. The actual callback method signature should 
+            // Step 1: Create a callback delegate. The actual callback method signature should
             // match with the signature of this delegate.
 
-            // refer to MyNumber class in Program5.cs 
+            // refer to MyNumber class in Program5.cs
 
             Console.WriteLine("Please enter the target number");
             int target = Convert.ToInt32(Console.ReadLine());
@@ -55,27 +55,27 @@ namespace Tutorials_ThomsonReuters
             MyNumber number = new MyNumber(target, callback);
             Thread T1 = new Thread(new ThreadStart(number.PrintSumOfNumbers));
             T1.Start();
-        
+
             /* ---------------------
             92) Significance of Thread Join and Thread IsAlive functions
             -------------------- */
 
             // Thread.Join and Thread.IsAlive functions
 
-            // Join blocks the current thread and makes it wait until the thread 
+            // Join blocks the current thread and makes it wait until the thread
             // on which Join method is invoked completes.
-            // Join method also has an overload where we can specify the timeout. 
+            // Join method also has an overload where we can specify the timeout.
             // If we don't specify the timeout the calling thread waits indefinitely,
             // until the thread on which Join() is invoked completes.
-            // This overloaded Join(int millisecondsTimeout) method returns a boolean 
-            // True if the thread has terminated otherwise false 
+            // This overloaded Join(int millisecondsTimeout) method returns a boolean
+            // True if the thread has terminated otherwise false
 
-            // Join is particularly useful when we need to wait and collect a result from 
+            // Join is particularly useful when we need to wait and collect a result from
             // a thread execution or if we need to do some clean-up after the thread has completed.
 
             // IsAlive returns boolean. True if the thread is still executing otherwise false
 
-            // View static function definitions at the end of the class 
+            // View static function definitions at the end of the class
 
             Console.WriteLine("Main started");
 
@@ -88,15 +88,15 @@ namespace Tutorials_ThomsonReuters
 
             Console.WriteLine("Main completed");
 
-            // The order of the output 
+            // The order of the output
             // will differ a bit every time it executes
-            // The statements are not guarantee in any order 
+            // The statements are not guarantee in any order
             // which is the nature of multithreaded programming.
 
-            // for example the output COULD BE 
-            // Main started 
-            // Thread1Function started 
-            // Main completed 
+            // for example the output COULD BE
+            // Main started
+            // Thread1Function started
+            // Main completed
             // Thread2Function started
 
             // So the Main function, we get one thread for free
@@ -104,16 +104,16 @@ namespace Tutorials_ThomsonReuters
 
             // Once the Main thread creates the additional thread,
             // the Main thread will not wait for that thread to complete,
-            // it will proceed to the next line 
+            // it will proceed to the next line
 
-            // Main thread doesn't wait, it proceeds 
+            // Main thread doesn't wait, it proceeds
 
-            // Sometimes you may need to make the Main thread wait while 
-            // worker threads are doing their work 
-            // since you may want to collect the result from worker threads and 
+            // Sometimes you may need to make the Main thread wait while
+            // worker threads are doing their work
+            // since you may want to collect the result from worker threads and
             // based on that we want the main thread to do something.
 
-            // That's when Join is useful 
+            // That's when Join is useful
 
              Console.WriteLine("Main started");
 
@@ -124,33 +124,33 @@ namespace Tutorials_ThomsonReuters
             Thread T5 = new Thread(Program6.Thread2Function);
             T5.Start();
 
-            // once this line is executed, the Main thread is going to suspend 
-            // its execution and wait for T4 to return from its method 
-            // and once it has completed its exeuction 
+            // once this line is executed, the Main thread is going to suspend
+            // its execution and wait for T4 to return from its method
+            // and once it has completed its exeuction
             T4.Join();
             Console.WriteLine("Thread1Function completed");
 
-            // Main thread will wait until this thread completes its execution 
+            // Main thread will wait until this thread completes its execution
             T5.Join();
             Console.WriteLine("Thread2Function completed");
 
             // SO now with the above code which uses .Join()
-            // you will always get the same output 
-            // as we force the Main thread to wait. 
-             
+            // you will always get the same output
+            // as we force the Main thread to wait.
+
             Console.WriteLine("Main completed");
 
             //
             // There is another overload of the .Join() method where you can specify the timeout
-            // you could pass the timeout in milliseconds for the time that you are willing to wait 
-            // until the thread completes its execution 
+            // you could pass the timeout in milliseconds for the time that you are willing to wait
+            // until the thread completes its execution
 
             Thread T6 = new Thread(Program6.Thread1Function);
             if (T6.Join(1000))
             {
                 Console.WriteLine("Thread1Function completed!");
             }
-            else 
+            else
             {
                 Console.WriteLine("Thread1Function has not completed in 1 second");
             }
@@ -158,22 +158,22 @@ namespace Tutorials_ThomsonReuters
             if (T6.IsAlive)
             {
                 Console.WriteLine("Thread1Function is still processing");
-            } 
-            else 
+            }
+            else
             {
                 Console.WriteLine("Thread1Function has completed execution");
             }
 
             // to check every 500 milliseconds
 
-            for (int i = 1; i < 10; i++) 
+            for (int i = 1; i < 10; i++)
             {
                  if (T6.IsAlive)
                 {
                     Console.WriteLine("Thread1Function is still processing");
                     Thread.Sleep(500);
-                } 
-                else 
+                }
+                else
                 {
                     Console.WriteLine("Thread1Function has completed execution");
                     break;
@@ -184,39 +184,39 @@ namespace Tutorials_ThomsonReuters
             93) Protecting shared resources from concurrent access
             -------------------- */
 
-            // What happens if shared resources are not protected from concurrent access 
+            // What happens if shared resources are not protected from concurrent access
             // in multithreaded programs?
 
-            // The output or behavior of the program can become inconsistent if the shared 
+            // The output or behavior of the program can become inconsistent if the shared
             // resourcecs are not protected from concurrent access in multithreaded program.
 
-            // This program is a single-threaded program. 
-            // In the Main() method, AddOneMillion() method is called 3 times 
-            // and it updates the total field correctly as expected 
+            // This program is a single-threaded program.
+            // In the Main() method, AddOneMillion() method is called 3 times
+            // and it updates the total field correctly as expected
 
             // so far this program is single threaded,
             // where a single thread is used to execeute all of this code
-            // and protecting shared resources is not a concern 
+            // and protecting shared resources is not a concern
             // and you always get the same output.
             AddOneMillion();
             AddOneMillion();
             AddOneMillion();
             Console.WriteLine("Total = " + Total);
 
-            
 
-            // now rewrite the program to use multiple threads 
+
+            // now rewrite the program to use multiple threads
             // Everytime we run the below program we get a different output.
-            // The inconsistent output is because the Total field is a shared 
+            // The inconsistent output is because the Total field is a shared
             // resource is not protected from concurrent access by multiple threads.
-            // The operator ++ is not thread safe. 
+            // The operator ++ is not thread safe.
 
             Thread thread1 = new Thread(Program6.AddOneMillion);
             Thread thread2 = new Thread(Program6.AddOneMillion);
             Thread thread3 = new Thread(Program6.AddOneMillion);
 
             thread1.Start();
-            thread2.Start(); 
+            thread2.Start();
             thread3.Start();
 
             thread1.Join();
@@ -230,18 +230,18 @@ namespace Tutorials_ThomsonReuters
 
             // There are several ways to fix this.
 
-            // using Interlocked.Increment() method 
-            // increments a specified variable and stores the result as an atomic operation 
+            // using Interlocked.Increment() method
+            // increments a specified variable and stores the result as an atomic operation
 
             // Interlocked.Increment(ref Total);
-            // instead of 
+            // instead of
             // Total++;
 
             // Or with Locking:
 
             // shown below this class
             // so when we use lock,
-            // only one thread at a time could enter that piece of code 
+            // only one thread at a time could enter that piece of code
 
             Stopwatch stopwatch = Stopwatch.StartNew();
             Thread thread4 = new Thread(Program6.AddOneMillionLock);
@@ -249,7 +249,7 @@ namespace Tutorials_ThomsonReuters
             Thread thread6 = new Thread(Program6.AddOneMillionLock);
 
             thread4.Start();
-            thread5.Start(); 
+            thread5.Start();
             thread6.Start();
 
             thread4.Join();
@@ -259,16 +259,16 @@ namespace Tutorials_ThomsonReuters
             Console.WriteLine("Total = " + Total);
             stopwatch.Stop();
             Console.WriteLine(stopwatch.ElapsedTicks);
-            // A tick is a measurement of time, so 
+            // A tick is a measurement of time, so
             // one millisecond contains 10,000 ticks
 
             Console.WriteLine(TimeSpan.TicksPerHour);
             // for example, it has other useful methods
 
             // Which option is better?
-            // From a performance perspective, using Interlocked class is better 
+            // From a performance perspective, using Interlocked class is better
             // over using locking.
-            // Locking locks out all the other threads except a single therad to read 
+            // Locking locks out all the other threads except a single therad to read
             // and increment the Total variable.
             // This will ensure that the Total variable is updated safely.
             // The downside is that since all the other threads are locked out,
@@ -285,7 +285,7 @@ namespace Tutorials_ThomsonReuters
             94) Difference between Monitor and lock in C#
             -------------------- */
 
-            // Both monitor class and lock provides a mechanism that synchronizes access 
+            // Both monitor class and lock provides a mechanism that synchronizes access
             // to objects.
             // Lock is the shortcut for Monitor.Enter with try and finally.
 
@@ -294,21 +294,21 @@ namespace Tutorials_ThomsonReuters
             // They are equally valid.
 
             // for lock(_lock)
-            // that code will acquire an exclusive lock 
+            // that code will acquire an exclusive lock
             // and the same is the case for Monitor.Enter
 
-            // in C# 4, it's implemented slightly differently 
+            // in C# 4, it's implemented slightly differently
 
-            // as shown in function below this class 
+            // as shown in function below this class
 
             // So in short, lock is a shortcut and it's the option for basic usage.
-            // If you need more congtrol to implement advanced multithreading solutions 
-            // using TryEnter(), Wait(), Pulse(), and PulseAll() methods 
+            // If you need more congtrol to implement advanced multithreading solutions
+            // using TryEnter(), Wait(), Pulse(), and PulseAll() methods
             // then the Monitor class is your option
 
 
             /* ---------------------
-            95) Deadlock in a multithreaded program 
+            95) Deadlock in a multithreaded program
             -------------------- */
 
             // When a deadlock can occur.
@@ -316,12 +316,12 @@ namespace Tutorials_ThomsonReuters
             // a) Thread 1
             // b) Thread 2
 
-            // and 2 resources 
+            // and 2 resources
             // a) Resource 1
             // b) Resource 2
 
             // Thread 1 has already acquired a lock on Resource 1 and wants to acquire a lock on resource 2.
-            // At the same time Thread 2 has already acquired a lock on Resource 2 and wants to acquire a 
+            // At the same time Thread 2 has already acquired a lock on Resource 2 and wants to acquire a
             // lock on Resource 1.
 
             // Two threads never give up their locks, hence a deadlock.
@@ -351,18 +351,18 @@ namespace Tutorials_ThomsonReuters
             // The Transfer methods are being executed on two different threads.
             // 2 different resources, and the lock is performed.
 
-            // NOTE: Many modern computers have many processors 
+            // NOTE: Many modern computers have many processors
             // which enable them to execute in parallel.
-            // Enable multiple processes as to make your applications 
+            // Enable multiple processes as to make your applications
             // faster and more responsive.
 
             // A process is an instance of a program or an application.
-            // So when you open/run an application, your operating system 
+            // So when you open/run an application, your operating system
             // loads that application within a process.
 
             // A process contains an image of that application's code.
             // Your operating system can execute many processes at the same time.
-            // You could also have concurrency within each application 
+            // You could also have concurrency within each application
             // using threads.
 
             // A thread is a sequence of instructions.
@@ -370,15 +370,15 @@ namespace Tutorials_ThomsonReuters
 
 
              /* ---------------------
-            96) How to resolve a deadlock in a multithreaded program 
+            96) How to resolve a deadlock in a multithreaded program
             -------------------- */
 
             // There are several techniques to avoid and resolve deadlocks.
             // 1) Acquiring locks in a specific defined order
-            // 2) Mutex class 
-            // 3) Monitor.TryEnter() method 
+            // 2) Mutex class
+            // 3) Monitor.TryEnter() method
 
-            // In this video, will discuss, acquiring locks in a specific defined order 
+            // In this video, will discuss, acquiring locks in a specific defined order
             // to resolve a deadlock.
 
             // We need to define a specific order. View the updated transfer method.
@@ -386,39 +386,39 @@ namespace Tutorials_ThomsonReuters
             // The possibility of having deadlocks is reduced.
 
             /* ---------------------
-            97) Performance of a multithreaded program 
+            97) Performance of a multithreaded program
             -------------------- */
 
-            // Performance when run on a single core/processor machine 
+            // Performance when run on a single core/processor machine
             // versus multi core/processor machine.
 
             // To find out how many processors you have on your machine.
-            // 1) Using Task Manager 
+            // 1) Using Task Manager
 
             // 2) Use the following code in any .NET application.
             // Environment.ProcessorCount
             // Console.WriteLine("Processor count " + Environment.ProcessorCount);
 
-            // 3) On the windows command prompt window, type the following 
+            // 3) On the windows command prompt window, type the following
             // echo %NUMBER_OF_PROCESSORS%
 
-            // On a machine that has multiple processors. Multiple threads can execute 
+            // On a machine that has multiple processors. Multiple threads can execute
             // application code in parallel on different cores. For example,
-            // if there are two threads and two cores, then each thread would run on an 
+            // if there are two threads and two cores, then each thread would run on an
             // individual core. This means, performance is better.
 
-            // If two threads take 10 milli-seconds each to complete, then on a machine with 
+            // If two threads take 10 milli-seconds each to complete, then on a machine with
             // 2 processors, the total time taken is 10 milli-seconds.
 
-            // On a machine taht has a single processor, multiple threads execute, one after 
-            // the other or wait until one thread finishes. 
-            // It is not possible for a single processor system to execute multiple threads 
+            // On a machine taht has a single processor, multiple threads execute, one after
+            // the other or wait until one thread finishes.
+            // It is not possible for a single processor system to execute multiple threads
             // in parallel. Since the operating system switches between the threads so fast,
             // it just gives the illusion that the threads run in parallel.
-            // On a single core/processor machine multiple threads can affect performance 
+            // On a single core/processor machine multiple threads can affect performance
             // negatively as there is overhead involved with context switching.
 
-            // If two threads take 10 milli-seconds each to complete, then on a machine with 1 
+            // If two threads take 10 milli-seconds each to complete, then on a machine with 1
             // processor, the total time taken is
             // 20 milli-seconds + (Thread context switching time, if any)
 
@@ -429,23 +429,23 @@ namespace Tutorials_ThomsonReuters
             // stopWatch.Stop();
             // Console.WriteLine("Total milliseconds without multiple threads");
 
-        
+
             /* ---------------------
             98) Anonymous methods in C#
             -------------------- */
 
             // An anonymous method is a method without a name.
-            // They provide a way of creating delegate instances without having to 
+            // They provide a way of creating delegate instances without having to
             // write a separate method.
 
-            // Step 1: Create a method whose signature matches 
+            // Step 1: Create a method whose signature matches
             // with the signature of Predicate<Employee> delegate
             // private static bool FindEmplyee(Employee employee)
             // {
             //     return employee.ID == 102;
             // }
 
-            // Step 2: Create an instance of Predicate<Employee> delegate and pass the 
+            // Step 2: Create an instance of Predicate<Employee> delegate and pass the
             // method name as an argument to the delegate constructor.
             // Predicate<Employee> predicateEmployee = new Predicate<Employee>(FindEmployee);
 
@@ -472,7 +472,7 @@ namespace Tutorials_ThomsonReuters
             //     MessageBox.Show("Button Clicked");
             // }
 
-            // Anonymous Method 
+            // Anonymous Method
             // private void Form1_Load(object sender, EventArgs e)
             // {
             //     Button Button1 = new Button();
@@ -489,7 +489,7 @@ namespace Tutorials_ThomsonReuters
             -------------------- */
 
             // What are lambda expressions?
-            // Anonymous methods and Lambda expressions are very similar. 
+            // Anonymous methods and Lambda expressions are very similar.
             // Anonymous methods were introduced in C# 2 and Lambda expressions in C# 3.
 
             // To find an employee with Id == 102, using anonymous method.
@@ -503,20 +503,20 @@ namespace Tutorials_ThomsonReuters
             // int count = listEmployees.Count(x => x.Name.StartsWith("M"));
 
             // => is called lambda expression and reads as GOES TO
-            // Notice that with a lambda expression you don't have to use the delegate 
+            // Notice that with a lambda expression you don't have to use the delegate
             // keyword explicitly. The parameter type is inferred.
-            // Lambda expressions are more convenient to use than anonymous methods. 
+            // Lambda expressions are more convenient to use than anonymous methods.
             // Lambda expressions are particularly helpful for writing LINQ query expressions.\
 
             // In most of the cases, lambda expressions supersedes anonymous methods.
             // The only time you would prefer anonymous methods over lambdas,
-            // is when we have to omit the parameter list when it's 
+            // is when we have to omit the parameter list when it's
             // not use within the body.
 
-            // Anonymous methods allow the parameter list to be omitted entirely when it's not 
+            // Anonymous methods allow the parameter list to be omitted entirely when it's not
             // used within the body, where as with lambda expressions this is not th ecase.
 
-            // For example, with anonymous method, notice we have omitted the parameter list 
+            // For example, with anonymous method, notice we have omitted the parameter list
             // as we are not using them within the body.
             // Button1.Clilck += delegate
             // {
@@ -525,7 +525,7 @@ namespace Tutorials_ThomsonReuters
 
             // The above code can be rewritten using lambda expressions as show.
             // Notice that we cannot omit the parameter list.
-            // Buttton1.Click += (eventSender, eventArgs) => 
+            // Buttton1.Click += (eventSender, eventArgs) =>
             // {
             //     MessageBox.Show("Button Clicked");
             // };
@@ -537,14 +537,14 @@ namespace Tutorials_ThomsonReuters
             // Purpose of Func<T, TResult> delegate in C#
 
             // In simple terms, Func<T, TResult> is just a generic delegate.
-            // Depending on the requirement, the type parameters 
+            // Depending on the requirement, the type parameters
             // can be replaced with the corresponding type arguments.
 
             // For example,
             // Func<Employee, string> is a delegate that represents a function
             // expecting Employee object as an input parameter and returns a string.
 
-            // public class Employee 
+            // public class Employee
             // {
             //     public int ID { get; set; }
 
@@ -566,7 +566,7 @@ namespace Tutorials_ThomsonReuters
             //     Console.WriteLine(name);
             // }
 
-            // lambda expressions can also be used to achieve the same thing 
+            // lambda expressions can also be used to achieve the same thing
             //IEnumerable<string> names  = listEmployees.Select(employee => "Name = " + employee.Name);
 
             // What is the difference between the Func delegate and lambda expression?
@@ -590,7 +590,7 @@ namespace Tutorials_ThomsonReuters
 
             // To make it responsive.
             // Task class, can think of it as a verb.
-            // Decorate with 
+            // Decorate with
             // private async void btnProcessFile(object sender, EventArgs e)
             // {
             //      Task<int> task = new Task<int>(CountCharacters);
@@ -607,7 +607,7 @@ namespace Tutorials_ThomsonReuters
 
             // Have to wait for the worker thread to finish.
 
-            // To make the main thread wait to finish we have to call 
+            // To make the main thread wait to finish we have to call
             // thread.Join();
 
             // It will now perform as expected.
@@ -617,24 +617,24 @@ namespace Tutorials_ThomsonReuters
             // no other thread should be doing that.
 
             // The right way is to use the begin invoke method.
-            // Action delegate 
+            // Action delegate
             // Action action = () => { ...... }
             // this.BeginInvoke(action); // this ask the UI thread to execute asynchronusly
-            
+
         }
 
-        // For video #95 
-        public class Account 
+        // For video #95
+        public class Account
         {
             double _balance; int _id;
-            
+
             public Account(int id, double balance)
             {
                 _id = id;
                 _balance = balance;
             }
 
-            public int ID 
+            public int ID
             {
                 get { return _id; }
             }
@@ -651,7 +651,7 @@ namespace Tutorials_ThomsonReuters
         }
 
         // For video #95
-        public class AccountManager 
+        public class AccountManager
         {
             Account _fromAccount; Account _toAccount; double _amountToTransfer;
             public AccountManager(Account fromAccount, Account toAccount, double amountToTransfer)
@@ -688,7 +688,7 @@ namespace Tutorials_ThomsonReuters
                 {
                     _lock1 = _fromAccount; _lock2 = _toAccount;
                 }
-                else 
+                else
                 {
                     _lock1 = _toAccount; _lock2 = _fromAccount;
                 }
@@ -709,7 +709,7 @@ namespace Tutorials_ThomsonReuters
 
         // for Video #92
         public static void Thread1Function()
-        {   
+        {
             Console.WriteLine("Thread1Function started");
             Thread.Sleep(5000);
             Console.WriteLine("Thread1Function is about to return");
@@ -748,18 +748,18 @@ namespace Tutorials_ThomsonReuters
             for (int i = 1; i < 1000000; i++)
             {
                 Monitor.Enter(_lock);
-                try 
+                try
                 {
                     Total++;
                 }
-                finally 
+                finally
                 {
                     Monitor.Exit(_lock);
                 }
             }
         }
 
-        // in C# 4 
+        // in C# 4
         public static void AddOneMillion4()
         {
             for (int i = 0; i < 1000000; i++)
@@ -767,17 +767,17 @@ namespace Tutorials_ThomsonReuters
                 bool lockTaken = false;
 
                 Monitor.Enter(_lock, ref lockTaken);
-                try 
+                try
                 {
                     Total++;
                 }
-                finally 
+                finally
                 {
                     if (lockTaken)
                         Monitor.Exit(_lock);
                 }
         }
-        
+
     }
 
 }
